@@ -4,15 +4,11 @@
   position: absolute;
 }
 
-.nav-main li > ul.is-visible {
-  max-height: 500px;
-}
-
 .nav-main li > ul {
  display: none;
 }
 
-.nav-main li > ul.is-visible {
+.nav-main .is-open > ul {
   display: block;
 }
 
@@ -23,7 +19,7 @@
   overflow: hidden;
 }
 
-.nav-main li > ul.is-visible {
+.nav-main .is-open > ul {
   max-height: 500px;
 }*/
 
@@ -35,7 +31,7 @@
   overflow: hidden;
 }
 
-.nav-main li > ul.is-visible {
+.nav-main .is-open > ul{
   height: auto;
   opacity: 1;
 }*/

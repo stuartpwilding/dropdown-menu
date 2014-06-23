@@ -6,7 +6,7 @@ var dropdownMenu = function(options){
 
   defaults = {
     menu : '',
-    show_class : 'is-visible',
+    show_class : 'is-open',
     open_delay : 200,
     close_delay : 500
   };
@@ -30,7 +30,7 @@ var dropdownMenu = function(options){
       self.TO_enter = window.setTimeout(function() {
         self.menu_active = true;
         if (!self.menu_open) {
-          self.$active_li.find('> ul').addClass(options.show_class);
+          self.$active_li.addClass(options.show_class);
           self.menu_open = true;
         }
       }, options.open_delay);
@@ -40,7 +40,7 @@ var dropdownMenu = function(options){
       clearTimeout(self.TO_enter);
       if (self.menu_open) {
         self.TO_leave = window.setTimeout(function() {
-          self.$active_li.find('> ul').removeClass(options.show_class);
+          self.$active_li.removeClass(options.show_class);
           self.$active_li = null;
           self.menu_open = false;
           self.menu_active = false;
@@ -50,11 +50,11 @@ var dropdownMenu = function(options){
 
     self.$menu.on('mouseenter', '> li', function(e) {
       if (self.$active_li !== null) {
-        self.$active_li.find('> ul').removeClass(options.show_class);
+        self.$active_li.removeClass(options.show_class);
       }
       self.$active_li = $(this);
       if (self.menu_active) {
-        self.$active_li.find('> ul').addClass(options.show_class);
+        self.$active_li.addClass(options.show_class);
         self.menu_open = true;
       }
     });
