@@ -1,12 +1,43 @@
 /*dropdown.css*/
 
 .nav-main li > ul {
-  display: none;
   position: absolute;
 }
 
-.is-visible {
-  display: block !important;
+.nav-main li > ul.is-visible {
+  max-height: 500px;
 }
+
+.nav-main li > ul {
+ display: none;
+}
+
+.nav-main li > ul.is-visible {
+  display: block;
+}
+
+
+/*.nav-main li > ul {
+  max-height: 0;
+  transition: max-height 0.4s ease;
+  overflow: hidden;
+}
+
+.nav-main li > ul.is-visible {
+  max-height: 500px;
+}*/
+
+
+/*.nav-main li > ul {
+  height: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  overflow: hidden;
+}
+
+.nav-main li > ul.is-visible {
+  height: auto;
+  opacity: 1;
+}*/
 
 

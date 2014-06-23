@@ -31,7 +31,6 @@ var dropdownMenu = function(options){
           self.menu_open = true;
         }
       }, 500);
-
     });
 
     self.$menu.on('mouseleave', function() {
@@ -46,19 +45,14 @@ var dropdownMenu = function(options){
       }
     });
 
-
     self.$menu.on('mouseenter', '> li', function(e) {
       if (self.$active_li !== null) {
         self.$active_li.find('> ul').removeClass('is-visible');
       }
-
       self.$active_li = $(this);
-
       if (self.menu_active) {
-
         self.menu_open = true;
         self.$active_li.find('> ul').addClass('is-visible');
-
       }
 
     });
