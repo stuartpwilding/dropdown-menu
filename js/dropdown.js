@@ -30,8 +30,7 @@ var dropdownMenu = function(options){
       self.TO_enter = window.setTimeout(function() {
         self.menu_active = true;
         if (!self.menu_open) {
-          self.$active_li.addClass(options.show_class);
-          self.menu_open = true;
+          self.open();
         }
       }, options.open_delay);
     });
@@ -40,25 +39,38 @@ var dropdownMenu = function(options){
       clearTimeout(self.TO_enter);
       if (self.menu_open) {
         self.TO_leave = window.setTimeout(function() {
-          self.$active_li.removeClass(options.show_class);
+          self.close();
           self.$active_li = null;
           self.menu_open = false;
           self.menu_active = false;
         }, options.close_delay);
+      } else {
+        self.$active_li = null;
       }
     });
 
-    self.$menu.on('mouseenter', '> li', function(e) {
-      if (self.$active_li !== null) {
-        self.$active_li.removeClass(options.show_class);
+    self.$menu.on('mouseenter', '> li', function() {
+      var $this_item = $(this);
+      if (self.$active_li !== null && !$this_item.hasClass(options.show_class)) {
+        self.close();
       }
-      self.$active_li = $(this);
-      if (self.menu_active) {
-        self.$active_li.addClass(options.show_class);
-        self.menu_open = true;
+      self.$active_li = $this_item;
+      if (self.menu_active && !$this_item.hasClass(options.show_class)) {
+        self.open();
       }
     });
   }
+
+  self.open = function() {
+    self.$active_li.addClass(options.show_class)
+    .find('> ul[aria-hidden]').attr('aria-hidden', 'false');
+    self.menu_open = true;
+  };
+
+  self.close = function() {
+    self.$active_li.removeClass(options.show_class)
+    .find('> ul[aria-hidden]').attr('aria-hidden', 'true');
+  };
 
   if (options.menu !== '' ) {
     self.init();
