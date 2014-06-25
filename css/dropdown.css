@@ -1,37 +1,37 @@
 /*dropdown.css*/
 
-.nav-main li > ul {
+#nav-main li > ul {
   position: absolute;
 }
 
-.nav-main li > ul {
+#nav-main li > ul {
  display: none;
 }
 
-.nav-main .is-open > ul {
+#nav-main .is-open > ul {
   display: block;
 }
 
 
-/*.nav-main li > ul {
+/*#nav-main li > ul {
   max-height: 0;
   transition: max-height 0.4s ease;
   overflow: hidden;
 }
 
-.nav-main .is-open > ul {
+#nav-main .is-open > ul {
   max-height: 500px;
 }*/
 
 
-/*.nav-main li > ul {
+/*#nav-main li > ul {
   height: 0;
   opacity: 0;
   transition: opacity 0.4s ease;
   overflow: hidden;
 }
 
-.nav-main .is-open > ul{
+#nav-main .is-open > ul{
   height: auto;
   opacity: 1;
 }*/

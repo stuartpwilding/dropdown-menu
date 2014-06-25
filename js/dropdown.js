@@ -59,6 +59,15 @@ var dropdownMenu = function(options){
         self.open();
       }
     });
+
+    self.$menu.on('focus', '> li', function() {
+      if (self.$active_li !== null) {
+        self.close();
+      }
+      self.$active_li = $(this);
+      self.open();
+    });
+
   }
 
   self.open = function() {
@@ -83,7 +92,7 @@ var dropdownMenu = function(options){
 $(document).ready(function() {
 
   var newDropdown = new dropdownMenu({
-    menu : '#page-head .nav-main > ul'
+    menu : '#nav-main > ul'
   });
 
 });

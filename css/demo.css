@@ -6,28 +6,31 @@
  padding-top: 100px;
 }
 
-.nav-main > ul > li  {
+#nav-main > ul > li  {
   float: left;
   border: 1px solid #333;
   width: 20%;
   position: relative;
-
-
 }
 
-
-
-.nav-main > ul > li > a {
+#nav-main > ul > li > a {
   display: block;
   text-align: center;
   background: #ddd;
 }
 
-
-.nav-main li > ul {
+#nav-main li > ul {
   background: #fff;
   border: 1px solid #333;
   width: 100%;
+}
+
+#nav-main li:focus {
+  border-color: red;
+}
+
+#nav-main ul > li > a:focus {
+  color: red;
 }
 
 
